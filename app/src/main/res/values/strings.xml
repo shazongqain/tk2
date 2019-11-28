@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">tiku2</string>
+    <string-array name="paixu">
+        <item>时间将序</item>
+        <item>时间升序</item>
+    </string-array>
+</resources>
