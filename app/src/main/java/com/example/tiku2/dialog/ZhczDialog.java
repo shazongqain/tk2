@@ -66,7 +66,7 @@ public class ZhczDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.zhcz_dialog,null);
+        return inflater.inflate(R.layout.bzhcz_dialog,null);
     }
 
     @Override
@@ -136,7 +136,7 @@ public class ZhczDialog extends DialogFragment {
                             values.put("jine",et_jine.getText().toString());
                             values.put("yue",Integer.parseInt(jines[finalI])+Integer.parseInt(et_jine.getText().toString()));
                             values.put("time",dateFormat.format(date));
-                            database.insert("zhgl",null,values);
+                            database.insert("bzhgl",null,values);
                             if (finalI1==body.length-1){
                                 dialog=new ProgressDialog(context);
                                 dialog.setTitle("提示");
@@ -168,7 +168,7 @@ public class ZhczDialog extends DialogFragment {
        TextView tv_cp=getView().findViewById(R.id.cp);
         et_jine=getView().findViewById(R.id.et_jine);
         tv_cp.setText(cp);
-         mysql=new Mysql(context,"zhgl.db",null,1);
+         mysql=new Mysql(context,"bzhgl.db",null,1);
         database=mysql.getWritableDatabase();
 
     }

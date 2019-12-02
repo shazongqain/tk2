@@ -33,7 +33,7 @@ public class ZhglAdapter extends ArrayAdapter<ZhglInfor> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView= LayoutInflater.from(getContext()).inflate(R.layout.zhgl_item,null);
+        convertView= LayoutInflater.from(getContext()).inflate(R.layout.bzhgl_item,null);
         TextView number=convertView.findViewById(R.id.number);
         TextView cp=convertView.findViewById(R.id.cp);
         TextView name=convertView.findViewById(R.id.name);

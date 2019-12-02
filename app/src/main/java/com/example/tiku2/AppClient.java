@@ -7,8 +7,8 @@ import android.preference.PreferenceManager;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
-
+import com.example.tiku2.bean.XqInfor;
+import com.example.tiku2.bean.ZlInfor;
 
 
 import java.util.ArrayList;
@@ -21,12 +21,16 @@ import java.util.List;
 public class AppClient extends Application {
     private static RequestQueue requestQueue;
     private static SharedPreferences preferences;
+    private List<ZlInfor> zlInfors;
+    private List<XqInfor> xqInfors;
     @Override
     public void onCreate() {
         super.onCreate();
 
         requestQueue= Volley.newRequestQueue(this);
         preferences= PreferenceManager.getDefaultSharedPreferences(this);
+        zlInfors=new ArrayList<>();
+        xqInfors=new ArrayList<>();
     }
 
     public static void setRequestQueue(JsonObjectRequest jsonObjectRequest){
@@ -50,7 +54,7 @@ public class AppClient extends Application {
     }
 
     public static String getIp(){
-        return preferences.getString("ip","192.168.43.218");
+        return preferences.getString("ip","10.172.176.94");
     }
 
     public void setYz(int yz){
@@ -58,5 +62,13 @@ public class AppClient extends Application {
     }
     public int getYz(){
         return preferences.getInt("yz",0);
+    }
+
+    public List<ZlInfor> getZlInfors() {
+        return zlInfors;
+    }
+
+    public List<XqInfor> getXqInfors() {
+        return xqInfors;
     }
 }

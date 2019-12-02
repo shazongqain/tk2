@@ -22,7 +22,7 @@ public class ZdglAdapter extends ArrayAdapter<ZdglInfor> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView= LayoutInflater.from(getContext()).inflate(R.layout.zdgl_item,null);
+        convertView= LayoutInflater.from(getContext()).inflate(R.layout.bzdgl_item,null);
         TextView number=convertView.findViewById(R.id.number);
         TextView cp=convertView.findViewById(R.id.cp);
         TextView jine=convertView.findViewById(R.id.jine);

@@ -25,7 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZhglActivity extends AppCompatActivity {
+public class BZhglActivity extends AppCompatActivity {
 private ListView lv;
 private List<ZhglInfor> list;
 private ZhglAdapter adapter;
@@ -33,7 +33,7 @@ private TextView pl,record;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zhgl);
+        setContentView(R.layout.bzhgl);
         initView();
         getData();
         setListener();
@@ -47,7 +47,7 @@ private TextView pl,record;
                 if (lx==1){
                     infor.setCheck(check);
                 }else {
-                    ZhczDialog dialog=new ZhczDialog(ZhglActivity.this,infor.getCp(),infor.getYue()+"");
+                    ZhczDialog dialog=new ZhczDialog(BZhglActivity.this,infor.getCp(),infor.getYue()+"");
                     dialog.show(getSupportFragmentManager(),"");
                     dialog.setData(new ZhczDialog.CzData() {
                         @Override
@@ -77,11 +77,11 @@ private TextView pl,record;
                     }
                 }
                 if (cp.equals("")){
-                    Toast.makeText(ZhglActivity.this, "请选择充值的账户", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BZhglActivity.this, "请选择充值的账户", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                ZhczDialog dialog=new ZhczDialog(ZhglActivity.this,cp,yue);
+                ZhczDialog dialog=new ZhczDialog(BZhglActivity.this,cp,yue);
                 dialog.show(getSupportFragmentManager(),"");
                 dialog.setData(new ZhczDialog.CzData() {
                     @Override
@@ -95,7 +95,7 @@ private TextView pl,record;
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ZhglActivity.this,ZdglActivity.class));
+                startActivity(new Intent(BZhglActivity.this, BZdglActivity.class));
             }
         });
 

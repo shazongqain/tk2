@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.tiku2.AppClient;
 import com.example.tiku2.R;
 
-public class ZhszActivity extends AppCompatActivity {
+public class BZhszActivity extends AppCompatActivity {
     private TextView tv_yz;
     private EditText et_yz;
     private Button set;
@@ -21,7 +21,7 @@ public class ZhszActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zhsz);
+        setContentView(R.layout.bzhsz);
         initView();
       setListener();
     }
@@ -31,7 +31,7 @@ public class ZhszActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 appClient.setYz(Integer.parseInt(et_yz.getText().toString()));
-                Toast.makeText(ZhszActivity.this, "设置成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BZhszActivity.this, "设置成功", Toast.LENGTH_SHORT).show();
                 tv_yz.setText(appClient.getYz()+"");
             }
         });

@@ -6,8 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,7 +23,7 @@ import com.example.tiku2.sql.Mysql;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZdglActivity extends AppCompatActivity {
+public class BZdglActivity extends AppCompatActivity {
     private ListView lv;
     private List<ZdglInfor> list;
     private ZdglAdapter adapter;
@@ -33,7 +34,7 @@ public class ZdglActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zdgl);
+        setContentView(R.layout.bzdgl);
         initView();
         setListener();
     }
@@ -42,13 +43,14 @@ public class ZdglActivity extends AppCompatActivity {
         cx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("vvvvvvvvvv", "setListener: "+spinner.getSelectedItem().toString());
                 setData();
             }
         });
     }
 
     private void setData() {
-        Cursor cursor= database.query("zhgl",null,null,null,null,null,null);
+        Cursor cursor= database.rawQuery("select * from zhgl" ,null);
         if (cursor.moveToFirst()){
             list.clear();
             String cp,name,money,jine,time;
@@ -59,8 +61,10 @@ public class ZdglActivity extends AppCompatActivity {
                 money=cursor.getString(cursor.getColumnIndex("yue"));
                 time=cursor.getString(cursor.getColumnIndex("time"));
                 if (spinner.getSelectedItem().toString().equals("时间降序")){
+                    Log.d("rrrrrrrrrrr", "setData: 时间降序");
                     list.add(0,new ZdglInfor(cp,jine,name,time,money));
                 }else {
+                    Log.d("rrrrrrrrrrr", "setData: 时间升序");
                     list.add(new ZdglInfor(cp,jine,name,time,money));
                 }
 
@@ -74,7 +78,7 @@ public class ZdglActivity extends AppCompatActivity {
     private void initView() {
         lv=findViewById(R.id.lv);
         list=new ArrayList<>();
-        mysql=new Mysql(this,"zhgl.db",null,1);
+        mysql=new Mysql(this,"bzhgl.db",null,1);
         database=mysql.getReadableDatabase();
         spinner=findViewById(R.id.spinner);
         cx=findViewById(R.id.cx);
@@ -87,7 +91,7 @@ public class ZdglActivity extends AppCompatActivity {
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ZdglActivity.this,ZhszActivity.class));
+                startActivity(new Intent(BZdglActivity.this, BZhszActivity.class));
             }
         });
         title.setText("账户设置");
@@ -99,27 +103,8 @@ public class ZdglActivity extends AppCompatActivity {
             }
         });
 
-
-        Cursor cursor= database.query("zhgl",null,null,null,null,null,null);
-        if (cursor.moveToFirst()){
-            list.clear();
-            String cp,name,money,jine,time;
-            do {
-                cp=cursor.getString(cursor.getColumnIndex("cp"));
-                name=cursor.getString(cursor.getColumnIndex("name"));
-                jine=cursor.getString(cursor.getColumnIndex("jine"));
-                money=cursor.getString(cursor.getColumnIndex("yue"));
-                time=cursor.getString(cursor.getColumnIndex("time"));
-                if (spinner.getSelectedItem().toString().equals("时间降序")){
-                    list.add(0,new ZdglInfor(cp,jine,name,time,money));
-                }else {
-                    list.add(0,new ZdglInfor(cp,jine,name,time,money));
-                }
-
-            }while (cursor.moveToNext());
-
-            adapter.notifyDataSetChanged();
-        }
+        Log.d("vvvvvvvvvv", "initview: "+spinner.getSelectedItem().toString());
+       setData();
 
     }
 }

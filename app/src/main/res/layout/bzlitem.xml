@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:paddingBottom="30dp"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/item"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@drawable/bg_radius"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/cp"
+            android:text="鲁A10001"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+     <LinearLayout
+         android:orientation="horizontal"
+         android:layout_marginTop="50dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+         <TextView
+             android:text="未处理违章"
+             android:textStyle="bold"
+             android:textColor="#000"
+             android:textSize="35dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+         <TextView
+             android:id="@+id/wcl"
+             android:paddingLeft="20dp"
+             android:text="1"
+             android:textStyle="bold"
+             android:textColor="#000"
+             android:textSize="35dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+         <TextView
+             android:paddingLeft="20dp"
+             android:text="次"
+             android:textStyle="bold"
+             android:textColor="#000"
+             android:textSize="35dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="扣"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/kf"
+                android:paddingLeft="20dp"
+                android:text="1"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingLeft="20dp"
+                android:text="分"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginLeft="70dp"
+                android:text="罚款"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/fk"
+                android:paddingLeft="20dp"
+                android:text="1"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingLeft="20dp"
+                android:text="元"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+
+
+</LinearLayout>
+    <ImageView
+        android:id="@+id/jianhao"
+        android:paddingLeft="15dp"
+        android:src="@drawable/jianhao"
+        android:layout_weight="0.15"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
+</LinearLayout>
